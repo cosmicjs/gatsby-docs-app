@@ -7,7 +7,6 @@ import { graphql } from 'gatsby'
 const converter = new showdown.Converter()
 
 const DocPage = ({ data }) => {
-  // console.log(data, window.location.pathname)
   return (
     <Layout>
       <div
