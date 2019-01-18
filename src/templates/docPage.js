@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 import Layout from '../components/layout.js'
 import SEO from '../components/seo.js'
 import { graphql } from 'gatsby'
+import './_docPage.scss'
 
-const converter = new showdown.Converter()
+const converter = new showdown.Converter({ ghCompatibleHeaderId: true })
 
 const DocPage = ({ data }) => {
   const Doc = data.docs.object
@@ -13,24 +14,43 @@ const DocPage = ({ data }) => {
     window.location = '/'
   }
 
-  let toc = {}
+  let toc = `[Docs List](${window.location.origin})
+  `
   for (const i in Doc.metafields) {
     if (Doc.metafields[i].key === "table_of_contents") {
-      toc = Doc.metafields[i].value
+      toc += Doc.metafields[i].value
     }
   }
-
   return (
     <Layout>
       <SEO title={data.docs.object.title} keywords={[`${data.docs.object.title}`, 'gatsby', 'documentation']} />
-      <div className="doc-container">
+      <div
+        className="doc-container"
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          width: '100%',
+          height: 'calc(100vh - 228px)'
+        }}
+      >
         <div
           className="doc-toc"
           dangerouslySetInnerHTML={{ __html: converter.makeHtml(toc) }}
+          style={{
+            width: '30%',
+            height: '100%',
+            overflow: 'auto',
+          }}
         />
         <div
           className="doc-main"
           dangerouslySetInnerHTML={{ __html: converter.makeHtml(Doc.content) }}
+          style={{
+            width: '80%',
+            height: '100%',
+            overflow: 'auto',
+          }}
         />
       </div>
     </Layout>

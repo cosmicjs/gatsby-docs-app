@@ -7,9 +7,7 @@ const initialState = {
   sectionType: 'table',
   title: '',
   table: '',
-  exposition: '',
-  codeKeys: [],
-  codeblocks: [],
+  main: '',
   fetching: false,
   error: {},
 }
@@ -36,9 +34,7 @@ class CreateDoc extends React.Component {
       switch (this.state.sectionType) {
         case "table":
           return "Add a Table of Contents"
-        case "code":
-          return "Add Code Blocks"
-        case "exposition":
+        case "main":
           return "Add your Main Content"
         default:
           return "No Section Selected"
@@ -78,19 +74,9 @@ class CreateDoc extends React.Component {
                 Main Content
                 <input
                   type="radio"
-                  name="exposition"
-                  value="exposition"
-                  checked={this.state.sectionType === 'exposition'}
-                  onChange={this.handleRadio}
-                />
-              </label>
-              <label>
-                Code Blocks
-                <input
-                  type="radio"
-                  name="code"
-                  value="code"
-                  checked={this.state.sectionType === 'code'}
+                  name="main"
+                  value="main"
+                  checked={this.state.sectionType === 'main'}
                   onChange={this.handleRadio}
                 />
               </label>
@@ -129,9 +115,6 @@ class CreateDoc extends React.Component {
 
   handleInput(e) {
     const { name, value } = e.target
-    // if (e.name === 'code') {
-    //   this.setState({ codeblock: [...this.state.code, })
-    // }
     this.setState({ [name]: value })
   }
 
@@ -152,14 +135,10 @@ class CreateDoc extends React.Component {
       })
     }
 
-    if (this.state.codeKeys.length) {
-      // Need to figure out a system for associating code blocks with content sections
-    }
-
     bucket.addObject({
       type_slug: 'docs',
       title: this.state.title,
-      content: this.state.exposition,
+      content: this.state.main,
       metafields: meta,
     }).then(() => {
       this.setState({ fetching: false, success: true, open: false })
