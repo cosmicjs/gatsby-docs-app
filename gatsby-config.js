@@ -28,7 +28,7 @@ module.exports = {
         url: `https://graphql.cosmicjs.com/v1`,
         fieldName: `docs`,
         typeName: `Doc`,
-        refetchInterval: 60,
+        refetchInterval: 10,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
