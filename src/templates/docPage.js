@@ -14,6 +14,7 @@ const DocPage = ({ data }) => {
     window.location = '/'
   }
 
+  //comment for testing
   let toc = `[Docs List](${window.location.origin})
   `
   for (const i in Doc.metafields) {
