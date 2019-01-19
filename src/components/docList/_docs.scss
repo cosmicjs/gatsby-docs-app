@@ -102,7 +102,7 @@
   top: 100px;
   left: 10vw;
   width: 80vw;
-  height: 70vh;
+  height: 80vh;
   background-color: #ffffff;
 }
 
@@ -134,17 +134,30 @@
     width: 90%;
     background: none;
     outline: none;
-    border: thin solid lightblue;
+    border: thin solid #663399;
+    border-radius: 5px;
     font-family: sans-serif;
     margin: 10px auto;
   }
 
+  .content-container {
+    width: 90%;
+    height: 80%;
+    margin: 0 auto;
+    background-color: thistle;
+    border-radius: 5px;
+    overflow-y: auto;
+  }
+
   .markdown-input {
     resize: none;
-    height: 30%;
-    width: 90%;
-    margin: 10px auto;
+    height: 80%;
+    width: 95%;
+    margin-left: 2.5%;
     font-family: sans-serif;
+    border: none;
+    border-radius: 5px;
+    overflow: auto;
   }
 
   .submit-bttn {
@@ -152,7 +165,7 @@
     border: none;
     border-radius: 20px;
     background: violet;
-    margin: 0 auto;
+    margin: 20px auto;
     width: 100px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     color: #dcdcdc;

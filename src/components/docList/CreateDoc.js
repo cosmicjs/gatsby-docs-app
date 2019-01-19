@@ -12,6 +12,32 @@ const initialState = {
   error: {},
 }
 
+const sampleTOC = `
+- [Heading](#heading)
+  * [Sub-heading](#sub-heading)
+    + [Sub-sub-heading](#sub-sub-heading)
+- [Heading](#heading-1)
+  * [Sub-heading](#sub-heading-1)
+    + [Sub-sub-heading](#sub-sub-heading-1)
+- [Heading](#heading-2)
+  * [Sub-heading](#sub-heading-2)
+    + [Sub-sub-heading](#sub-sub-heading-2)`
+
+const sampleContent = `
+# This is an <h1> tag
+## This is an <h2> tag
+###### This is an <h6> tag
+
+*This text will be italic*
+_This will also be italic_
+
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
+
+`
+
 class CreateDoc extends React.Component {
   constructor() {
     super()
@@ -33,9 +59,9 @@ class CreateDoc extends React.Component {
     const displaySectionText = () => {
       switch (this.state.sectionType) {
         case "table":
-          return "Add a Table of Contents"
+          return "This is your Table of Contents, Link content with headings."
         case "main":
-          return "Add your Main Content"
+          return "This is your Main Content"
         default:
           return "No Section Selected"
       }
@@ -43,7 +69,7 @@ class CreateDoc extends React.Component {
 
     return (
       <div className={`create-doc-container${isActive()}`}>
-        <h4>{this.state.fetching ? 'loading' : null}</h4>
+        <h4 style={{ position: 'absolute', left: '50%' }}>{this.state.fetching ? 'loading' : null}</h4>
         {this.state.open
           ? <div className="doc-form">
             <button
@@ -59,7 +85,7 @@ class CreateDoc extends React.Component {
               value={this.state.title}
               placeholder="Enter a Title"
             />
-            <div className="sectionSelector">
+            <div className="content-container">
               <label>
                 Table of Contents
                 <input
@@ -80,15 +106,15 @@ class CreateDoc extends React.Component {
                   onChange={this.handleRadio}
                 />
               </label>
+              <h4>{displaySectionText()}</h4>
+              <textarea
+                className="markdown-input"
+                name={this.state.sectionType}
+                onChange={this.handleInput}
+                value={this.state[this.state.sectionType]}
+                placeholder={`Place Markdown Here... \n\n ${this.state.sectionType === 'table' ? sampleTOC : sampleContent}`}
+              />
             </div>
-            <h4>{displaySectionText()}</h4>
-            <textarea
-              className="markdown-input"
-              name={this.state.sectionType}
-              onChange={this.handleInput}
-              value={this.state[this.state.sectionType]}
-              placeholder="Place Markdown Here..."
-            />
             <button
               className="submit-bttn"
               onClick={this.addDoc}
