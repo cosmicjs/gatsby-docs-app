@@ -3,7 +3,7 @@ require("dotenv").config();
 module.exports = {
   siteMetadata: {
     title: `Gatsby Docs`,
-    description: `Create beautiful documentation, powered by GatsbyJs and CosmicJS`,
+    description: `Create minimalistic documentation, powered by GatsbyJs and CosmicJS`,
     author: `@jacobknaack`,
   },
   plugins: [

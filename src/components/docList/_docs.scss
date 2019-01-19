@@ -1,3 +1,81 @@
+.docs-container {
+  font-family: sans-serif;
+
+  .docs-item {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+    }
+
+    p {
+      border-bottom: thin solid lightgrey;
+      padding-bottom: 10px;
+    }
+
+    // css 
+    .icon {
+      display: inline-block;
+      position: relative;
+      width: 40px;
+      height: 50px;
+      margin: 30px;
+      background-color: #E1E2E3;
+      font-family: arial;
+    }
+    .icon:before {
+      width: 0;
+      height: 50px;
+      border-left: 10px solid #E1E2E3;
+      border-top: 10px solid transparent;
+      position: absolute;
+      content: "";
+      top: 0px;
+      right: -10px;
+    }
+    .icon:after {
+      width: 0; 
+      height: 0;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid rgba(0,0,0,.3);
+      position: absolute;
+      content: "";
+      top: 0px;
+      right: -10px;
+    }
+    .doc-type {
+      position: absolute;
+      bottom: 0;
+      width: 50px;
+      height: 16px;
+      font-size: 10px;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 10px;
+      color: #FFF;
+    }
+    .doc-icon {
+      position: absolute;
+      top: 10px;
+      width: 50px;
+      height: 20px;
+      font-size: 20px;
+      text-align: center;
+      line-height: 20px;
+      color: #FFF;
+    }
+
+    .icon.thistle { margin-top: 0; background-color: thistle; }
+    .icon.thistle:before { border-left-color: thistle; }
+
+    .doc-icon.doc { font-size: 16px; line-height: 22px; }
+  }
+}
+
 .create-doc-container {
   width: 200px;
   margin: 0 auto;

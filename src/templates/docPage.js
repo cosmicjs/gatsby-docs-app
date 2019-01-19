@@ -14,9 +14,7 @@ const DocPage = ({ data }) => {
     window.location = '/'
   }
 
-  //comment for testing
-  let toc = `[Docs List](${window.location.origin})
-  `
+  let toc = `###[Docs List](${window.location.origin})\n`
   for (const i in Doc.metafields) {
     if (Doc.metafields[i].key === "table_of_contents") {
       toc += Doc.metafields[i].value
@@ -51,6 +49,7 @@ const DocPage = ({ data }) => {
             width: '80%',
             height: '100%',
             overflow: 'auto',
+            scrollBehavior: 'smooth',
           }}
         />
       </div>

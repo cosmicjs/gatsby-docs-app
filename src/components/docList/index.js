@@ -11,14 +11,21 @@ function formatSlug(title) {
 const Docs = ({ docs }) => (
   <div className="docs-container">
     {docs.map(doc => (
-      <Link
+      <div
         key={doc._id}
         className="docs-item"
-        to={`/doc/${formatSlug(doc.title)}`}
       >
-        <h2>{doc.title}</h2>
-        <p>{doc.created_at}</p>
-      </Link>
+        <div className="icon thistle">
+          <span className="doc-icon doc">☰</span>
+          <span className="doc-type">README</span>
+        </div>
+        <Link
+          to={`/doc/${formatSlug(doc.title)}`}
+        >
+          <h2>{doc.title}</h2>
+          <p>{doc.created_at}</p>
+        </Link>
+      </div>
     ))}
     <CreateDoc />
   </div>
