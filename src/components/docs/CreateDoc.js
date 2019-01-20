@@ -1,6 +1,9 @@
 import React from 'react'
 import Cosmic from 'cosmicjs'
+import showdown from 'showdown'
+
 const api = Cosmic()
+const converter = new showdown.Converter({ ghCompatibleHeaderId: true })
 
 const initialState = {
   open: false,
@@ -85,34 +88,44 @@ class CreateDoc extends React.Component {
               placeholder="Enter a Title"
             />
             <div className="content-container">
-              <label>
-                Table of Contents
-                <input
-                  type="radio"
-                  name="table"
-                  value="table"
-                  checked={this.state.sectionType === 'table'}
-                  onChange={this.handleRadio}
+              <div className="content-info">
+                <label>
+                  Table of Contents
+                  <input
+                    type="radio"
+                    name="table"
+                    value="table"
+                    checked={this.state.sectionType === 'table'}
+                    onChange={this.handleRadio}
+                  />
+                </label>
+                <label>
+                  Main Content
+                  <input
+                    type="radio"
+                    name="main"
+                    value="main"
+                    checked={this.state.sectionType === 'main'}
+                    onChange={this.handleRadio}
+                  />
+                </label>
+                <h4>{displaySectionText()}</h4>
+              </div>
+              <div className="markdown-container">
+                <textarea
+                  className="markdown-input"
+                  name={this.state.sectionType}
+                  onChange={this.handleInput}
+                  value={this.state[this.state.sectionType]}
+                  placeholder={`Place Markdown Here... \n\n ${this.state.sectionType === 'table' ? sampleTOC : sampleContent}`}
                 />
-              </label>
-              <label>
-                Main Content
-                <input
-                  type="radio"
-                  name="main"
-                  value="main"
-                  checked={this.state.sectionType === 'main'}
-                  onChange={this.handleRadio}
-                />
-              </label>
-              <h4>{displaySectionText()}</h4>
-              <textarea
-                className="markdown-input"
-                name={this.state.sectionType}
-                onChange={this.handleInput}
-                value={this.state[this.state.sectionType]}
-                placeholder={`Place Markdown Here... \n\n ${this.state.sectionType === 'table' ? sampleTOC : sampleContent}`}
-              />
+                <label className="markdown-preview">
+                  Preview
+                  <div
+                    className="preview-content"
+                    dangerouslySetInnerHTML={{ __html: converter.makeHtml(this.state[this.state.sectionType]) }} />
+                </label>
+              </div>
             </div>
             <button
               className="submit-bttn"
