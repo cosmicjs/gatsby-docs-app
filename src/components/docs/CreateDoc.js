@@ -12,8 +12,7 @@ const initialState = {
   error: {},
 }
 
-const sampleTOC = `
-- [Heading](#heading)
+const sampleTOC = `- [Heading](#heading)
   * [Sub-heading](#sub-heading)
     + [Sub-sub-heading](#sub-sub-heading)
 - [Heading](#heading-1)
@@ -23,19 +22,19 @@ const sampleTOC = `
   * [Sub-heading](#sub-heading-2)
     + [Sub-sub-heading](#sub-sub-heading-2)`
 
-const sampleContent = `
-# This is an <h1> tag
+const sampleContent = `Headings:
+# This is a <h1> tag
 ## This is an <h2> tag
-###### This is an <h6> tag
 
+Italics / Bold:
 *This text will be italic*
-_This will also be italic_
+**This will be bold**
 
+Lists:
 * Item 1
-* Item 2
-  * Item 2a
-  * Item 2b
-
+  * Item 1a
+1. Numbered Item 1
+  1. Numbered Item 1a
 `
 
 class CreateDoc extends React.Component {

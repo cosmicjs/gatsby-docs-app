@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import Docs from '../components/docList'
+import Docs from '../components/docs'
 
 const IndexPage = ({ data }) => {
   return (
