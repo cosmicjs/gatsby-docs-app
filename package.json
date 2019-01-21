@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "cosmicjs": "^3.2.14",
+    "dotenv": "^6.2.0",
     "gatsby": "^2.0.91",
     "gatsby-image": "^2.0.26",
     "gatsby-plugin-manifest": "^2.0.13",
@@ -38,8 +39,7 @@
     "babel-eslint": "^10.0.1",
     "eslint-plugin-react": "^7.12.3",
     "gatsby-plugin-eslint": "^2.0.1",
-    "prettier": "^1.15.2",
-    "dotenv": "^6.2.0"
+    "prettier": "^1.15.2"
   },
   "repository": {
     "type": "git",
