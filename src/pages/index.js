@@ -9,12 +9,21 @@ import Docs from '../components/docs'
 const IndexPage = ({ data, pageContext }) => {
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`, 'documentation', 'docs', 'markdown']} />
+      <SEO
+        title="Home"
+        keywords={[
+          `gatsby`,
+          `application`,
+          `react`,
+          'documentation',
+          'docs',
+          'markdown',
+        ]}
+      />
       <Docs docs={data.docs.objectsByType} pageContext={pageContext} />
     </Layout>
   )
 }
-
 
 IndexPage.propTypes = {
   data: PropTypes.object,
@@ -24,7 +33,11 @@ IndexPage.propTypes = {
 export const query = graphql`
   query($cosmicBucket: String!, $readKey: String!) {
     docs {
-      objectsByType(bucket_slug: $cosmicBucket, type_slug: "docs", read_key: $readKey) {
+      objectsByType(
+        bucket_slug: $cosmicBucket
+        type_slug: "docs"
+        read_key: $readKey
+      ) {
         title
         content
         created_at

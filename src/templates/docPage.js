@@ -16,13 +16,16 @@ const DocPage = ({ data }) => {
 
   let toc = `###[Back to List](${window.location.origin})\n`
   for (const i in Doc.metafields) {
-    if (Doc.metafields[i].key === "table_of_contents") {
+    if (Doc.metafields[i].key === 'table_of_contents') {
       toc += Doc.metafields[i].value
     }
   }
   return (
     <Layout>
-      <SEO title={data.docs.object.title} keywords={[`${data.docs.object.title}`, 'gatsby', 'documentation']} />
+      <SEO
+        title={data.docs.object.title}
+        keywords={[`${data.docs.object.title}`, 'gatsby', 'documentation']}
+      />
       <div
         className="doc-container"
         style={{
@@ -30,7 +33,7 @@ const DocPage = ({ data }) => {
           flexDirection: 'row',
           justifyContent: 'center',
           width: '100%',
-          height: 'calc(100vh - 228px)'
+          height: 'calc(100vh - 228px)',
         }}
       >
         <div

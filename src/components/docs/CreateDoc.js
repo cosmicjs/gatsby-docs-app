@@ -61,24 +61,23 @@ class CreateDoc extends React.Component {
 
     const displaySectionText = () => {
       switch (this.state.sectionType) {
-        case "table":
-          return "This is your Table of Contents, Link content with headings."
-        case "main":
-          return "This is your Main Content"
+        case 'table':
+          return 'This is your Table of Contents, Link content with headings.'
+        case 'main':
+          return 'This is your Main Content'
         default:
-          return "No Section Selected"
+          return 'No Section Selected'
       }
     }
 
     return (
       <div className={`create-doc-container${isActive()}`}>
-        <h4 style={{ position: 'absolute', left: '50%' }}>{this.state.fetching ? 'loading' : null}</h4>
-        {this.state.open
-          ? <div className="doc-form">
-            <button
-              className="close-bttn"
-              onClick={this.toggleDocForm}
-            >
+        <h4 style={{ position: 'absolute', left: '50%' }}>
+          {this.state.fetching ? 'loading' : null}
+        </h4>
+        {this.state.open ? (
+          <div className="doc-form">
+            <button className="close-bttn" onClick={this.toggleDocForm}>
               Close
             </button>
             <input
@@ -118,27 +117,34 @@ class CreateDoc extends React.Component {
                   name={this.state.sectionType}
                   onChange={this.handleInput}
                   value={this.state[this.state.sectionType]}
-                  placeholder={`Place Markdown Here... \n\n ${this.state.sectionType === 'table' ? sampleTOC : sampleContent}`}
+                  placeholder={`Place Markdown Here... \n\n ${
+                    this.state.sectionType === 'table'
+                      ? sampleTOC
+                      : sampleContent
+                  }`}
                 />
                 <label className="markdown-preview">
                   Preview
                   <div
                     className="preview-content"
-                    dangerouslySetInnerHTML={{ __html: converter.makeHtml(this.state[this.state.sectionType]) }} />
+                    dangerouslySetInnerHTML={{
+                      __html: converter.makeHtml(
+                        this.state[this.state.sectionType]
+                      ),
+                    }}
+                  />
                 </label>
               </div>
             </div>
-            <button
-              className="submit-bttn"
-              onClick={this.addDoc}
-            >Submit</button>
+            <button className="submit-bttn" onClick={this.addDoc}>
+              Submit
+            </button>
           </div>
-          : <p
-            className="create-doc-bttn"
-            onClick={this.toggleDocForm}
-          >
+        ) : (
+          <p className="create-doc-bttn" onClick={this.toggleDocForm}>
             Create New Doc
-          </p>}
+          </p>
+        )}
       </div>
     )
   }
@@ -168,23 +174,26 @@ class CreateDoc extends React.Component {
 
     if (this.state.table) {
       meta.push({
-        "title": "Table of Contents",
-        "key": `table_of_contents`,
-        "type": "markdown",
-        "value": this.state.table,
+        title: 'Table of Contents',
+        key: `table_of_contents`,
+        type: 'markdown',
+        value: this.state.table,
       })
     }
 
-    bucket.addObject({
-      type_slug: 'docs',
-      title: this.state.title,
-      content: this.state.main,
-      metafields: meta,
-    }).then(() => {
-      this.setState({ fetching: false, success: true, open: false })
-    }).catch(err => {
-      this.setState({ fetching: false, error: err })
-    })
+    bucket
+      .addObject({
+        type_slug: 'docs',
+        title: this.state.title,
+        content: this.state.main,
+        metafields: meta,
+      })
+      .then(() => {
+        this.setState({ fetching: false, success: true, open: false })
+      })
+      .catch(err => {
+        this.setState({ fetching: false, error: err })
+      })
   }
 }
 

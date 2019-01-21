@@ -32,8 +32,9 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "heroku-postbuild": "gatsby build",
     "develop": "gatsby develop",
-    "start": "npm run develop",
+    "start": "gatsby serve --port ${PORT}",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
