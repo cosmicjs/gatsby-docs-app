@@ -13,7 +13,8 @@ exports.onCreatePage = ({ page, actions }) => {
   createPage({
     ...page,
     context: {
-      readKey: `${process.env.GATSBY_COSMIC_JS_READ_ACCESS_KEY}`,
+      writeKey: `${process.env.COSMIC_WRITE_KEY}`,
+      readKey: `${process.env.COSMIC_READ_KEY}`,
     }
   })
 }
@@ -28,7 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(`
         query {
           docs {
-            objectsByType(bucket_slug: "gatsby-docs", type_slug: "docs", read_key: "${process.env.GATSBY_COSMIC_JS_READ_ACCESS_KEY}") {
+            objectsByType(bucket_slug: "gatsby-docs", type_slug: "docs", read_key: "${process.env.COSMIC_READ_KEY}") {
               title
             }
           }
@@ -44,7 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/doc/${slug}`,
             component: docTemplate,
             context: {
-              readKey: `${process.env.GATSBY_COSMIC_JS_READ_ACCESS_KEY}`,
+              readKey: `${process.env.COSMIC_READ_KEY}`,
               title: slug,
             }
           })

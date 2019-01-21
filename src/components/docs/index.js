@@ -14,7 +14,6 @@ function formatDate(dateString) {
     'April', 'May', 'June', 'July', 'August', 'September',
     'October', 'November', 'December']
   const hh = date.getUTCHours()
-  // let seconds = date.getUTCSeconds()
   let minutes = date.getUTCMinutes()
   let hour = hh
   let dayTime = 'AM'
@@ -27,12 +26,11 @@ function formatDate(dateString) {
   }
 
   minutes = minutes < 10 ? '0' + minutes : minutes
-  // seconds = seconds < 10 ? '0' + seconds : seconds
 
   return `${months[date.getUTCMonth()]} ${date.getUTCDate()}, at ${hour}:${minutes} ${dayTime}`
 }
 
-const Docs = ({ docs }) => (
+const Docs = ({ docs, pageContext }) => (
   <div className="docs-container">
     {docs.map(doc => (
       <div
@@ -51,12 +49,15 @@ const Docs = ({ docs }) => (
         </Link>
       </div>
     ))}
-    <CreateDoc />
+    <CreateDoc
+      pageContext={pageContext}
+    />
   </div>
 )
 
 Docs.propTypes = {
   docs: PropTypes.array.isRequired,
+  pageContext: PropTypes.object,
 }
 
 export default Docs

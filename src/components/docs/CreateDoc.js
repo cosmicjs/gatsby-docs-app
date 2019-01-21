@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Cosmic from 'cosmicjs'
 import showdown from 'showdown'
 
@@ -158,10 +159,11 @@ class CreateDoc extends React.Component {
 
   addDoc() {
     this.setState({ fetching: true })
+    const { writeKey } = this.props.pageContext
     const meta = []
     const bucket = api.bucket({
       slug: 'gatsby-docs',
-      write_key: `${process.env.GATSBY_COSMIC_JS_WRITE_ACCESS_KEY}`
+      write_key: writeKey,
     })
 
     if (this.state.table) {
@@ -184,6 +186,10 @@ class CreateDoc extends React.Component {
       this.setState({ fetching: false, error: err })
     })
   }
+}
+
+CreateDoc.propTypes = {
+  pageContext: PropTypes.object,
 }
 
 export default CreateDoc

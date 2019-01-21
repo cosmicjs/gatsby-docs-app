@@ -6,11 +6,11 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Docs from '../components/docs'
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`, 'documentation', 'docs', 'markdown']} />
-      <Docs docs={data.docs.objectsByType} />
+      <Docs docs={data.docs.objectsByType} pageContext={pageContext} />
     </Layout>
   )
 }
@@ -18,6 +18,7 @@ const IndexPage = ({ data }) => {
 
 IndexPage.propTypes = {
   data: PropTypes.object,
+  pageContext: PropTypes.object,
 }
 
 export const query = graphql`
