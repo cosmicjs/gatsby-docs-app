@@ -3,7 +3,7 @@ import showdown from 'showdown'
 import PropTypes from 'prop-types'
 import Layout from '../components/layout.js'
 import SEO from '../components/seo.js'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import './_docPage.scss'
 
 const converter = new showdown.Converter({ ghCompatibleHeaderId: true })
@@ -14,10 +14,10 @@ const DocPage = ({ data }) => {
     window.location = '/'
   }
 
-  let toc = `###[Back to List](${window.location.origin})\n`
+  let toc
   for (const i in Doc.metafields) {
     if (Doc.metafields[i].key === 'table_of_contents') {
-      toc += Doc.metafields[i].value
+      toc = Doc.metafields[i].value
     }
   }
   return (
@@ -36,6 +36,11 @@ const DocPage = ({ data }) => {
           height: 'calc(100vh - 228px)',
         }}
       >
+        <div className="toc-link-container">
+          <Link to="/" className="back-bttn">
+            Back To List
+          </Link>
+        </div>
         <div
           className="doc-toc"
           dangerouslySetInnerHTML={{ __html: converter.makeHtml(toc) }}
