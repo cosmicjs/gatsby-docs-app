@@ -58,9 +58,9 @@ const DocPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query($title: String!, $readKey: String!) {
+  query($cosmicBucket: String!, $title: String!, $readKey: String!) {
     docs {
-      object(bucket_slug: "gatsby-docs", slug: $title, read_key: $readKey) {
+      object(bucket_slug: $cosmicBucket, slug: $title, read_key: $readKey) {
         title
         content
         created_at

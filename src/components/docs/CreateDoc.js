@@ -159,10 +159,10 @@ class CreateDoc extends React.Component {
 
   addDoc() {
     this.setState({ fetching: true })
-    const { writeKey } = this.props.pageContext
+    const { writeKey, cosmicBucket } = this.props.pageContext
     const meta = []
     const bucket = api.bucket({
-      slug: 'gatsby-docs',
+      slug: cosmicBucket,
       write_key: writeKey,
     })
 

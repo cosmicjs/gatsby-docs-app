@@ -1,4 +1,9 @@
 {
+  "settings": {
+    "react": {
+      "version": "^16.6.3"
+    }
+  },
   "parser": "babel-eslint",
   "rules": {
     "strict": 0,

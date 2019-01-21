@@ -22,9 +22,9 @@ IndexPage.propTypes = {
 }
 
 export const query = graphql`
-  query($readKey: String!) {
+  query($cosmicBucket: String!, $readKey: String!) {
     docs {
-      objectsByType(bucket_slug: "gatsby-docs", type_slug: "docs", read_key: $readKey) {
+      objectsByType(bucket_slug: $cosmicBucket, type_slug: "docs", read_key: $readKey) {
         title
         content
         created_at

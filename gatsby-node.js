@@ -15,6 +15,7 @@ exports.onCreatePage = ({ page, actions }) => {
     context: {
       writeKey: `${process.env.COSMIC_WRITE_KEY}`,
       readKey: `${process.env.COSMIC_READ_KEY}`,
+      cosmicBucket: `${process.env.COSMIC_BUCKET}`
     }
   })
 }
@@ -29,7 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(`
         query {
           docs {
-            objectsByType(bucket_slug: "gatsby-docs", type_slug: "docs", read_key: "${process.env.COSMIC_READ_KEY}") {
+            objectsByType(bucket_slug: "${process.env.COSMIC_BUCKET}", type_slug: "docs", read_key: "${process.env.COSMIC_READ_KEY}") {
               title
             }
           }
@@ -45,6 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/doc/${slug}`,
             component: docTemplate,
             context: {
+              cosmicBucket: `${process.env.COSMIC_BUCKET}`,
               readKey: `${process.env.COSMIC_READ_KEY}`,
               title: slug,
             }
