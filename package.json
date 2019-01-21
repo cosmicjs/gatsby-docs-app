@@ -7,8 +7,10 @@
   "dependencies": {
     "cosmicjs": "^3.2.14",
     "dotenv": "^6.2.0",
+    "eslint-plugin-react": "^7.12.3",
     "gatsby": "^2.0.91",
     "gatsby-image": "^2.0.26",
+    "gatsby-plugin-eslint": "^2.0.1",
     "gatsby-plugin-manifest": "^2.0.13",
     "gatsby-plugin-offline": "^2.0.21",
     "gatsby-plugin-react-helmet": "^3.0.2",
@@ -37,8 +39,6 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "eslint-plugin-react": "^7.12.3",
-    "gatsby-plugin-eslint": "^2.0.1",
     "prettier": "^1.15.2"
   },
   "repository": {
