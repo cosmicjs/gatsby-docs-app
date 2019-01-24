@@ -40,7 +40,7 @@ function formatDate(dateString) {
 
   return `${
     months[date.getUTCMonth()]
-  } ${date.getUTCDate()}, at ${hour}:${minutes} ${dayTime}`
+    } ${date.getUTCDate()}, at ${hour}:${minutes} ${dayTime}`
 }
 
 const Docs = ({ docs, pageContext }) => (

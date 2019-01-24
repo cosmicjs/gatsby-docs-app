@@ -7,6 +7,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 p {
   color: #707070;
+  a {
+    text-decoration: none;
+    color: #663399;
+  }
 }
 
 .toc-link-container {
@@ -30,6 +34,17 @@ p {
 .doc-main {
   a {
     color: violet;
+  }
+}
+
+ol {
+  color: #a9a9a9;
+  font-weight: 300;
+  margin-top: 0;
+  a {
+    text-decoration: none;
+    color: #663399;
+    font-weight: 200;
   }
 }
 

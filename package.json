@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-docs",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A Documentation creating and viewing application",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jacob Knaack",
   "dependencies": {
     "cosmicjs": "^3.2.14",
     "dotenv": "^6.2.0",
@@ -27,7 +27,9 @@
     "showdown": "^1.9.0"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "cosmicjs",
+    "documentation"
   ],
   "license": "MIT",
   "scripts": {
@@ -44,7 +46,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/JacobKnaack/gatsby-docs"
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"

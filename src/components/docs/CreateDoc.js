@@ -16,7 +16,7 @@ const initialState = {
   error: {},
 }
 
-const sampleTOC = `- [Heading](#heading)
+const sampleToc = `- [Heading](#heading)
   * [Sub-heading](#sub-heading)
     + [Sub-sub-heading](#sub-sub-heading)
 - [Heading](#heading-1)
@@ -72,6 +72,9 @@ class CreateDoc extends React.Component {
 
     return (
       <div className={`create-doc-container${isActive()}`}>
+        {this.state.successMessage
+          ? <h3 className="create-doc-successMessage">{this.state.successMessage}</h3>
+          : null}
         <h4 style={{ position: 'absolute', left: '50%' }}>
           {this.state.fetching ? 'loading' : null}
         </h4>
@@ -119,9 +122,9 @@ class CreateDoc extends React.Component {
                   value={this.state[this.state.sectionType]}
                   placeholder={`Place Markdown Here... \n\n ${
                     this.state.sectionType === 'table'
-                      ? sampleTOC
+                      ? sampleToc
                       : sampleContent
-                  }`}
+                    }`}
                 />
                 <label className="markdown-preview">
                   Preview
@@ -141,10 +144,10 @@ class CreateDoc extends React.Component {
             </button>
           </div>
         ) : (
-          <p className="create-doc-bttn" onClick={this.toggleDocForm}>
-            Create New Doc
+            <p className="create-doc-bttn" onClick={this.toggleDocForm}>
+              Create New Doc
           </p>
-        )}
+          )}
       </div>
     )
   }
@@ -189,7 +192,8 @@ class CreateDoc extends React.Component {
         metafields: meta,
       })
       .then(() => {
-        this.setState({ fetching: false, success: true, open: false })
+        initialState.successMessage = 'Doc added, please wait...'
+        this.setState(initialState)
       })
       .catch(err => {
         this.setState({ fetching: false, error: err })
