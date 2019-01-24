@@ -24,8 +24,8 @@ function formatDate(dateString) {
     'November',
     'December',
   ]
-  const hh = date.getUTCHours()
-  let minutes = date.getUTCMinutes()
+  const hh = date.getHours()
+  let minutes = date.getMinutes()
   let hour = hh
   let dayTime = 'AM'
   if (hour >= 12) {
@@ -39,8 +39,8 @@ function formatDate(dateString) {
   minutes = minutes < 10 ? '0' + minutes : minutes
 
   return `${
-    months[date.getUTCMonth()]
-    } ${date.getUTCDate()}, at ${hour}:${minutes} ${dayTime}`
+    months[date.getMonth()]
+    } ${date.getDate()}, at ${hour}:${minutes} ${dayTime}`
 }
 
 const Docs = ({ docs, pageContext }) => (
