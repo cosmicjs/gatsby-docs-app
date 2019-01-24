@@ -48,16 +48,18 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
         result.data.docs.objectsByType.forEach(doc => {
-          let slug = doc.title.toLowerCase().replace(/\s/g, '-')
-          createPage({
-            path: `/doc/${slug}`,
-            component: docTemplate,
-            context: {
-              cosmicBucket: `${process.env.COSMIC_BUCKET}`,
-              readKey: `${process.env.COSMIC_READ_KEY}`,
-              title: slug,
-            }
-          })
+          if (doc.title) {
+            let slug = doc.title.toLowerCase().replace(/\s/g, '-')
+            createPage({
+              path: `/doc/${slug}`,
+              component: docTemplate,
+              context: {
+                cosmicBucket: `${process.env.COSMIC_BUCKET}`,
+                readKey: `${process.env.COSMIC_READ_KEY}`,
+                title: slug,
+              }
+            })
+          }
         })
       })
     )

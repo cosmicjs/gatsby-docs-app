@@ -12,7 +12,7 @@
 </h1>
 <p align="center">A minimalistic App for creating and viewing Documentation powered by Cosmic JS<p>
 
-## 🚀 Quick start
+## Quick Start
 
 1.  **Get this source Code**
 
@@ -76,8 +76,7 @@
 
     Open the `gatsby-docs` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## 🧐 What's inside?
-
+## Project Structure
 Here's what you should see when you first install the project.
 
     .
@@ -129,7 +128,7 @@ Here's what you should see when you first install the project.
 
 16. **`README.md`**: A text file containing useful reference information about your project.
 
-## 🎓 Learning Gatsby
+## Learning Gatsby
 
 Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
 
@@ -137,6 +136,6 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 - **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
-## 💫 Deploy
+## Deploy
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
