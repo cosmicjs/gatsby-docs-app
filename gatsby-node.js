@@ -21,7 +21,14 @@ exports.onCreatePage = ({ page, actions }) => {
 }
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
+
+  createRedirect({
+    fromPath: `/doc/*`,
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: `/`,
+  })
 
   return new Promise((resolve, reject) => {
     const docTemplate = path.resolve(`src/templates/docPage.js`)

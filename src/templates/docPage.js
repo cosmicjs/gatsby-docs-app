@@ -10,10 +10,6 @@ const converter = new showdown.Converter({ ghCompatibleHeaderId: true })
 
 const DocPage = ({ data }) => {
   const Doc = data.docs.object
-  if (!Doc) {
-    window.location = '/'
-  }
-
   let toc
   for (const i in Doc.metafields) {
     if (Doc.metafields[i].key === 'table_of_contents') {

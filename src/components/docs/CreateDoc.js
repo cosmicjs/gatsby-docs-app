@@ -193,7 +193,11 @@ class CreateDoc extends React.Component {
       })
       .then(() => {
         initialState.successMessage = 'Doc added, please wait...'
-        this.setState(initialState)
+        this.setState(initialState, () => {
+          setTimeout(() => {
+            window.location.reload()
+          }, 40000)
+        })
       })
       .catch(err => {
         this.setState({ fetching: false, error: err })
