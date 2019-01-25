@@ -81,7 +81,7 @@ class CreateDoc extends React.Component {
         {this.state.open ? (
           <div className="doc-form">
             <button className="close-bttn" onClick={this.toggleDocForm}>
-              Close
+              Cancel
             </button>
             <input
               className="title-input"
@@ -94,7 +94,7 @@ class CreateDoc extends React.Component {
               <div className="content-info">
                 <label>
                   Table of Contents
-                  <input
+                    <input
                     type="radio"
                     name="table"
                     value="table"
@@ -104,7 +104,7 @@ class CreateDoc extends React.Component {
                 </label>
                 <label>
                   Main Content
-                  <input
+                    <input
                     type="radio"
                     name="main"
                     value="main"
@@ -112,7 +112,6 @@ class CreateDoc extends React.Component {
                     onChange={this.handleRadio}
                   />
                 </label>
-                <h4>{displaySectionText()}</h4>
               </div>
               <div className="markdown-container">
                 <textarea
@@ -120,23 +119,29 @@ class CreateDoc extends React.Component {
                   name={this.state.sectionType}
                   onChange={this.handleInput}
                   value={this.state[this.state.sectionType]}
-                  placeholder={`Place Markdown Here... \n\n ${
+                  placeholder={`${displaySectionText()} \n\n ${
                     this.state.sectionType === 'table'
                       ? sampleToc
                       : sampleContent
                     }`}
                 />
-                <label className="markdown-preview">
-                  Preview
-                  <div
-                    className="preview-content"
-                    dangerouslySetInnerHTML={{
-                      __html: converter.makeHtml(
-                        this.state[this.state.sectionType]
-                      ),
-                    }}
-                  />
-                </label>
+                <div className="markdown-preview">
+                  <h4>Preview</h4>
+                  <div className="preview-layout">
+                    <div
+                      className="preview-content toc"
+                      dangerouslySetInnerHTML={{
+                        __html: converter.makeHtml(this.state.table),
+                      }}
+                    />
+                    <div
+                      className="preview-content main"
+                      dangerouslySetInnerHTML={{
+                        __html: converter.makeHtml(this.state.main)
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <button className="submit-bttn" onClick={this.addDoc}>
