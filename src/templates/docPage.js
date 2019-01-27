@@ -25,10 +25,8 @@ const DocPage = ({ data }) => {
       <div className="doc-container">
         <div className="toc-container">
           <div className="back-bttn">
-            <i className="arrow left"></i>
-            <Link to="/">
-              Back To List
-            </Link>
+            <i className="arrow left" />
+            <Link to="/">Back To List</Link>
           </div>
           <div
             className="doc-toc"

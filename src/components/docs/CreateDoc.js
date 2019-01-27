@@ -69,9 +69,11 @@ class CreateDoc extends React.Component {
 
     return (
       <div className={`create-doc-container${isActive()}`}>
-        {this.state.successMessage
-          ? <h3 className="create-doc-successMessage">{this.state.successMessage}</h3>
-          : null}
+        {this.state.successMessage ? (
+          <h3 className="create-doc-successMessage">
+            {this.state.successMessage}
+          </h3>
+        ) : null}
         <h4 style={{ position: 'absolute', left: '50%' }}>
           {this.state.fetching ? 'loading' : null}
         </h4>
@@ -95,7 +97,7 @@ class CreateDoc extends React.Component {
               <div className="content-info">
                 <label>
                   Table of Contents
-                    <input
+                  <input
                     type="radio"
                     name="table"
                     value="table"
@@ -105,7 +107,7 @@ class CreateDoc extends React.Component {
                 </label>
                 <label>
                   Main Content
-                    <input
+                  <input
                     type="radio"
                     name="main"
                     value="main"
@@ -124,21 +126,25 @@ class CreateDoc extends React.Component {
                     this.state.sectionType === 'table'
                       ? sampleToc
                       : sampleContent
-                    }`}
+                  }`}
                 />
                 <div className="markdown-preview">
                   <h4>Preview</h4>
                   <div className="preview-layout">
                     <div
-                      className={`preview-content toc${this.state.sectionType === 'table' ? ' selected' : ''}`}
+                      className={`preview-content toc${
+                        this.state.sectionType === 'table' ? ' selected' : ''
+                      }`}
                       dangerouslySetInnerHTML={{
                         __html: converter.makeHtml(this.state.table),
                       }}
                     />
                     <div
-                      className={`preview-content main${this.state.sectionType === 'main' ? ' selected' : ''}`}
+                      className={`preview-content main${
+                        this.state.sectionType === 'main' ? ' selected' : ''
+                      }`}
                       dangerouslySetInnerHTML={{
-                        __html: converter.makeHtml(this.state.main)
+                        __html: converter.makeHtml(this.state.main),
                       }}
                     />
                   </div>
@@ -150,10 +156,10 @@ class CreateDoc extends React.Component {
             </button>
           </div>
         ) : (
-            <p className="create-doc-bttn" onClick={this.toggleDocForm}>
-              Create New Doc
+          <p className="create-doc-bttn" onClick={this.toggleDocForm}>
+            Create New Doc
           </p>
-          )}
+        )}
       </div>
     )
   }
@@ -203,13 +209,15 @@ class CreateDoc extends React.Component {
           fetch(`${buildhookUrl}`, {
             method: 'POST',
             body: {},
-          }).then(() => {
-            setTimeout(() => {
-              window.location.reload()
-            }, 40000)
-          }).catch(err => {
-            this.setState({ error: err })
           })
+            .then(() => {
+              setTimeout(() => {
+                window.location.reload()
+              }, 40000)
+            })
+            .catch(err => {
+              this.setState({ error: err })
+            })
         }
         this.setState(initialState)
       })

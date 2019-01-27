@@ -13,7 +13,7 @@
   .docs-item {
     width: 30%;
     min-width: 300px;
-    height: 300px;
+    height: 400px;
     margin: 0 20px;
     display: flex;
     flex-direction: column;
@@ -21,15 +21,17 @@
     text-decoration: none;
     background: linear-gradient(#ffffff, #0078ef);
     border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    transition: 0.3s ease-in-out;
+    overflow-y: auto; 
 
     .doc-title {
       width: calc(100% - 30px);
       margin: 0;
       padding: 0 15px;
-      color: #ffffff;
+      color: #001a66;
       font-family: Roboto;
-      font-weight: 100;
+      font-weight: 200;
       text-align: left;
     }
 
@@ -45,10 +47,17 @@
 
     .doc-preview {
       width: 90%;
-      height: 50px;
+      height: 150px;
       margin: 40px auto 0 auto;
       overflow: hidden;
+       p, h1, h2, h3, h4, h5, h6, li, a {
+         color: #ffffff;
+       }
     }
+  }
+
+  .docs-item:hover {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   }
 }
 

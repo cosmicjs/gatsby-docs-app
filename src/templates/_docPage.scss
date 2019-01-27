@@ -28,6 +28,7 @@ p {
 
 .toc-container {
   width: 25%;
+  min-width: 290px;
   height: 100%;
   background-color: #F5F7FA;
   border-radius: 5px;
@@ -64,6 +65,26 @@ p {
     overflow: auto;
     padding-left: 20px;
     border-top: thin solid #a9a9a9;
+
+    ul, ol {
+      a {
+        transition: 0.3s ease-in-out;
+      }
+      
+      a:hover {
+        white-space: nowrap; 
+        margin: 10px;
+        padding: 10px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      }
+
+      a:active {
+        background-color: #5f6d7b;
+        color: #ffffff;
+      }
+    }
   }
 }
 
@@ -83,7 +104,6 @@ ol {
   color: #a9a9a9;
   font-weight: 200;
   margin: 0;
-  font-family: roboto;
   li {
     margin: 15px;
     a {

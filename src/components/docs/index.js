@@ -9,7 +9,10 @@ import './_docs.scss'
 const converter = new showdown.Converter()
 
 function formatSlug(title) {
-  return title.toLowerCase().replace(/[^a-zA-Z ]/g, "").replace(/\s/g, '-')
+  return title
+    .toLowerCase()
+    .replace(/[^a-zA-Z ]/g, '')
+    .replace(/\s/g, '-')
 }
 
 function formatDate(dateString) {
@@ -44,7 +47,7 @@ function formatDate(dateString) {
 
   return `${
     months[date.getMonth()]
-    } ${date.getDate()}, at ${hour}:${minutes} ${dayTime}`
+  } ${date.getDate()}, at ${hour}:${minutes} ${dayTime}`
 }
 
 const Docs = ({ docs, pageContext }) => (
@@ -61,7 +64,9 @@ const Docs = ({ docs, pageContext }) => (
           <h2 className="doc-title">{doc.title}</h2>
           <div
             className="doc-preview"
-            dangerouslySetInnerHTML={{ __html: converter.makeHtml(doc.content) }}
+            dangerouslySetInnerHTML={{
+              __html: converter.makeHtml(doc.content),
+            }}
           />
         </Link>
       ))}
