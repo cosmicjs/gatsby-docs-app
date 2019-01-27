@@ -130,13 +130,13 @@ class CreateDoc extends React.Component {
                   <h4>Preview</h4>
                   <div className="preview-layout">
                     <div
-                      className="preview-content toc"
+                      className={`preview-content toc${this.state.sectionType === 'table' ? ' selected' : ''}`}
                       dangerouslySetInnerHTML={{
                         __html: converter.makeHtml(this.state.table),
                       }}
                     />
                     <div
-                      className="preview-content main"
+                      className={`preview-content main${this.state.sectionType === 'main' ? ' selected' : ''}`}
                       dangerouslySetInnerHTML={{
                         __html: converter.makeHtml(this.state.main)
                       }}

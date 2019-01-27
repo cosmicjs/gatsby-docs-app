@@ -97,6 +97,7 @@ code,
 kbd,
 pre,
 samp {
+  border-radius: 10px;
   font-family: monospace, monospace;
   font-size: 1em;
 }

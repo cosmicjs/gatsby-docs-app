@@ -1,90 +1,59 @@
 .docs-container {
-  font-family: sans-serif;
+  height: 100%;
+  font-family: Roboto;
 
-  .docs-item {
-    width: 70%;
-    margin: 0 auto;
+  .docs-list {
+    height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 
-    h2 {
-      font-weight: 400;
-      color: #663399;
+  .docs-item {
+    width: 30%;
+    min-width: 300px;
+    height: 300px;
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-decoration: none;
+    background: linear-gradient(#ffffff, #0078ef);
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+    .doc-title {
+      width: calc(100% - 30px);
+      margin: 0;
+      padding: 0 15px;
+      color: #ffffff;
+      font-family: Roboto;
+      font-weight: 100;
+      text-align: left;
     }
 
-    a {
-      text-decoration: none;
-      min-width: 70%;
-    }
-
-    p {
-      border-bottom: thin solid lightgrey;
-      padding-bottom: 10px;
+    .doc-date {
+      width: calc(100% - 10px);
+      padding-left: 10px;
+      margin-top: 20px;
       color: #707070;
       font-weight: 300;
+      font-size: 75%;
+      text-align: left;
     }
 
-    // css for README icon
-    .icon {
-      display: inline-block;
-      position: relative;
-      width: 40px;
+    .doc-preview {
+      width: 90%;
       height: 50px;
-      margin: 30px;
-      background-color: #E1E2E3;
-      font-family: arial;
+      margin: 40px auto 0 auto;
+      overflow: hidden;
     }
-    .icon:before {
-      width: 0;
-      height: 50px;
-      border-left: 10px solid #E1E2E3;
-      border-top: 10px solid transparent;
-      position: absolute;
-      content: "";
-      top: 0px;
-      right: -10px;
-    }
-    .icon:after {
-      width: 0; 
-      height: 0;
-      border-right: 10px solid transparent;
-      border-bottom: 10px solid rgba(0,0,0,.3);
-      position: absolute;
-      content: "";
-      top: 0px;
-      right: -10px;
-    }
-    .doc-type {
-      position: absolute;
-      bottom: 0;
-      width: 50px;
-      height: 16px;
-      font-size: 10px;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 10px;
-      color: #FFF;
-    }
-    .doc-icon {
-      position: absolute;
-      top: 10px;
-      width: 50px;
-      height: 20px;
-      font-size: 20px;
-      text-align: center;
-      line-height: 20px;
-      color: #FFF;
-    }
-
-    .icon.thistle { margin-top: 0; background-color: thistle; }
-    .icon.thistle:before { border-left-color: thistle; }
-
-    .doc-icon.doc { font-size: 16px; line-height: 22px; }
   }
 }
 
 .create-doc-container {
+  z-index: 8;
   width: 200px;
   margin: 0 auto;
   border-radius: 30px;
@@ -131,14 +100,12 @@
     font-weight: 200;
     font-size: 100%;
     border-radius: 30px;
-    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: 0.5s ease-in-out;
   }
   
   .close-bttn:hover {
     color: #ffffff;
     background-color: #ff4c4c;
-    // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
   .helpertext {
@@ -252,20 +219,25 @@
       }
       .toc {
         width: 33%;
-        height: 100%;
+        height: calc(100% - 20px);
         overflow-y: auto;
       }
 
       .main {
         width: 66%;
-        height: 100%;
-        overflow-y: auto;
+        height: calc(100% - 20px);
+        overflow: auto;
       }
 
       a {
         text-decoration: none;
-        color: #663399;
-      }      
+        color: #5F6D7B;
+      }
+      
+      .toc.selected, .main.selected {
+        background-color: #d3d3d3;
+        border: thin solid #a9a9a9;
+      }
     }
   }
 
@@ -285,6 +257,7 @@
 
 .create-doc-bttn {
   cursor: pointer;
+  margin-bottom: 50px;
   padding: 10px;
   height: 100%;
   width: 100%;

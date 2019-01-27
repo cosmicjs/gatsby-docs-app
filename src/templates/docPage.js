@@ -24,9 +24,12 @@ const DocPage = ({ data }) => {
       />
       <div className="doc-container">
         <div className="toc-container">
-          <Link to="/" className="back-bttn">
-            Back To List
-          </Link>
+          <div className="back-bttn">
+            <i className="arrow left"></i>
+            <Link to="/">
+              Back To List
+            </Link>
+          </div>
           <div
             className="doc-toc"
             dangerouslySetInnerHTML={{ __html: converter.makeHtml(toc) }}

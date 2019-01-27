@@ -1,8 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import showdown from 'showdown'
+
 import CreateDoc from './CreateDoc.js'
 import { Link } from 'gatsby'
 import './_docs.scss'
+
+const converter = new showdown.Converter()
 
 function formatSlug(title) {
   return title.toLowerCase().replace(/[^a-zA-Z ]/g, "").replace(/\s/g, '-')
@@ -45,19 +49,23 @@ function formatDate(dateString) {
 
 const Docs = ({ docs, pageContext }) => (
   <div className="docs-container">
-    {docs.map(doc => (
-      <div key={doc._id} className="docs-item">
-        <div className="icon thistle">
-          <span className="doc-icon doc">☰</span>
-          <span className="doc-type">README</span>
-        </div>
-        <Link to={`/doc/${formatSlug(doc.title)}`}>
-          <h2>{doc.title}</h2>
-          <p>Created on {formatDate(doc.created_at)}</p>
-        </Link>
-      </div>
-    ))}
     <CreateDoc pageContext={pageContext} />
+    <div className="docs-list">
+      {docs.map(doc => (
+        <Link
+          key={doc._id}
+          to={`/doc/${formatSlug(doc.title)}`}
+          className="docs-item"
+        >
+          <p className="doc-date">{formatDate(doc.created_at)}</p>
+          <h2 className="doc-title">{doc.title}</h2>
+          <div
+            className="doc-preview"
+            dangerouslySetInnerHTML={{ __html: converter.makeHtml(doc.content) }}
+          />
+        </Link>
+      ))}
+    </div>
   </div>
 )
 

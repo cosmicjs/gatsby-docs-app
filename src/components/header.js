@@ -3,15 +3,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const Header = ({ siteTitle, description }) => (
-  <div
-    style={{
-      backgroundColor: '#663399',
-    }}
-  >
+  <div>
     <div
       style={{
         margin: `0 auto`,
-        maxWidth: 960,
+        maxWidth: 1200,
         padding: `1.45rem 1.0875rem`,
       }}
     >
@@ -19,8 +15,10 @@ const Header = ({ siteTitle, description }) => (
         <Link
           to="/"
           style={{
-            color: `white`,
+            color: `#0481ff`,
             textDecoration: `none`,
+            fontFamily: 'Roboto',
+            fontWeight: 200,
           }}
         >
           {siteTitle}
@@ -28,8 +26,10 @@ const Header = ({ siteTitle, description }) => (
       </h1>
       <p
         style={{
-          color: '#ffffff',
+          color: '#188bff',
           fontSize: '120%',
+          fontFamily: 'Roboto',
+          fontWeight: 100,
         }}
       >
         {description}

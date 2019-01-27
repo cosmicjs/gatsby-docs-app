@@ -1,9 +1,12 @@
 p, h1, h2, h3, h4, h5, h6, a {
   font-family: Roboto;
+  line-height: 35px;
+  font-weight: 300;
 }
 h1, h2, h3, h4, h5, h6 {
-  color: #101010;
-  font-weight: 400;
+  color: #0050a1;
+  font-weight: 200;
+  margin: 30px auto;
 }
 p {
   color: #707070;
@@ -20,50 +23,75 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  border-radius: 5px;
 }
 
 .toc-container {
   width: 25%;
   height: 100%;
   background-color: #F5F7FA;
+  border-radius: 5px;
 
   .back-bttn {
-    padding: 2px 10px 0 10px;
-    color: #663399;
-    font-family: sans-serif;
-    text-decoration: none;
+    height: 45px;
+    padding-top: 10px;
+    text-align: center;
+
+    .arrow {
+      border: solid #4353d2;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+      margin-right: 10px;
+    }
+
+    .left {
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+    }
+
+    a {
+      color: #4353d2;
+      text-decoration: none;
+      font-family: roboto;
+      font-weight: 400;
+    }
   }
 
   .doc-toc {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 45px);
     overflow: auto;
-    padding-top: 39px;
     padding-left: 20px;
+    border-top: thin solid #a9a9a9;
   }
 }
 
 .doc-main {
-  width: 75%;
-  height: 100%;
+  width: calc(75% - 30px);
+  height: calc(100% - 30px);
+  padding: 15px;
   overflow: auto;
   scroll-behavior: smooth;
 
   a {
-    color: violet;
+    color: #0078ef;
   }
 }
 
 ol {
   color: #a9a9a9;
   font-weight: 200;
-  margin-top: 0;
+  margin: 0;
   font-family: roboto;
-  a {
-    text-decoration: none;
-    color: #5F6D7B;
-    font-weight: 200;
-    line-height: 20px;
+  li {
+    margin: 15px;
+    a {
+      text-decoration: none;
+      color: #5F6D7B;
+      font-weight: 200;
+      line-height: 20px;
+    }
   }
 }
 
