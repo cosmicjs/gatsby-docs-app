@@ -8,15 +8,18 @@ const path = require('path');
 
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
-
+  const pageContext = {
+    writeKey: `${process.env.COSMIC_WRITE_KEY}`,
+    readKey: `${process.env.COSMIC_READ_KEY}`,
+    cosmicBucket: `${process.env.COSMIC_BUCKET}`,
+  }
+  if (process.env.NODE_ENV === 'production') {
+    pageContext.buildhookUrl = `${process.env.BUILDHOOK_ENDPOINT}`
+  }
   deletePage(page)
   createPage({
     ...page,
-    context: {
-      writeKey: `${process.env.COSMIC_WRITE_KEY}`,
-      readKey: `${process.env.COSMIC_READ_KEY}`,
-      cosmicBucket: `${process.env.COSMIC_BUCKET}`
-    }
+    context: pageContext,
   })
 }
 
@@ -47,9 +50,9 @@ exports.createPages = ({ graphql, actions }) => {
         if (result.errors) {
           reject(result.errors)
         }
-        result.data.docs.objectsByType.forEach(doc => {
-          if (doc.title) {
-            let slug = doc.title.toLowerCase().replace(/\s/g, '-')
+        if (result.data.docs.objectsByType.length) {
+          result.data.docs.objectsByType.forEach(doc => {
+            let slug = doc.title.toLowerCase().replace(/[^a-zA-Z ]/g, "").replace(/\s/g, '-')
             createPage({
               path: `/doc/${slug}`,
               component: docTemplate,
@@ -59,8 +62,8 @@ exports.createPages = ({ graphql, actions }) => {
                 title: slug,
               }
             })
-          }
-        })
+          })
+        }
       })
     )
   })

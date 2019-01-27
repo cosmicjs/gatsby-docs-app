@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import './_docs.scss'
 
 function formatSlug(title) {
-  return title.toLowerCase().replace(/\s/g, '-')
+  return title.toLowerCase().replace(/[^a-zA-Z ]/g, "").replace(/\s/g, '-')
 }
 
 function formatDate(dateString) {

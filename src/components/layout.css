@@ -622,6 +622,23 @@ pre tt:before,
 pre tt:after {
   content: '';
 }
+
+#footer {
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  font-family: Roboto;
+  background-color: #ffffff;
+  color: #101010;
+  left: 0;
+  bottom: 0;
+}
+#footer a {
+  text-decoration: none;
+  color: #4373D2;
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

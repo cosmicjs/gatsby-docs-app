@@ -22,39 +22,19 @@ const DocPage = ({ data }) => {
         title={data.docs.object.title}
         keywords={[`${data.docs.object.title}`, 'gatsby', 'documentation']}
       />
-      <div
-        className="doc-container"
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          width: '100%',
-          height: 'calc(100vh - 228px)',
-        }}
-      >
-        <div className="toc-link-container">
+      <div className="doc-container">
+        <div className="toc-container">
           <Link to="/" className="back-bttn">
             Back To List
           </Link>
+          <div
+            className="doc-toc"
+            dangerouslySetInnerHTML={{ __html: converter.makeHtml(toc) }}
+          />
         </div>
-        <div
-          className="doc-toc"
-          dangerouslySetInnerHTML={{ __html: converter.makeHtml(toc) }}
-          style={{
-            width: '30%',
-            height: '100%',
-            overflow: 'auto',
-          }}
-        />
         <div
           className="doc-main"
           dangerouslySetInnerHTML={{ __html: converter.makeHtml(Doc.content) }}
-          style={{
-            width: '80%',
-            height: '100%',
-            overflow: 'auto',
-            scrollBehavior: 'smooth',
-          }}
         />
       </div>
     </Layout>

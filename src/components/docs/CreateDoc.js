@@ -21,10 +21,7 @@ const sampleToc = `- [Heading](#heading)
     + [Sub-sub-heading](#sub-sub-heading)
 - [Heading](#heading-1)
   * [Sub-heading](#sub-heading-1)
-    + [Sub-sub-heading](#sub-sub-heading-1)
-- [Heading](#heading-2)
-  * [Sub-heading](#sub-heading-2)
-    + [Sub-sub-heading](#sub-sub-heading-2)`
+    + [Sub-sub-heading](#sub-sub-heading-1)`
 
 const sampleContent = `Headings:
 # This is a <h1> tag
@@ -83,13 +80,17 @@ class CreateDoc extends React.Component {
             <button className="close-bttn" onClick={this.toggleDocForm}>
               Cancel
             </button>
-            <input
-              className="title-input"
-              name="title"
-              onChange={this.handleInput}
-              value={this.state.title}
-              placeholder="Enter a Title"
-            />
+            <label className="helpertext">
+              Doc Title
+              <input
+                className="title-input"
+                name="title"
+                onChange={this.handleInput}
+                value={this.state.title}
+                placeholder="Enter a Title"
+              />
+              <span>required</span>
+            </label>
             <div className="content-container">
               <div className="content-info">
                 <label>
@@ -173,7 +174,7 @@ class CreateDoc extends React.Component {
 
   addDoc() {
     this.setState({ fetching: true })
-    const { writeKey, cosmicBucket } = this.props.pageContext
+    const { writeKey, cosmicBucket, buildhookUrl } = this.props.pageContext
     const meta = []
     const bucket = api.bucket({
       slug: cosmicBucket,
@@ -197,12 +198,20 @@ class CreateDoc extends React.Component {
         metafields: meta,
       })
       .then(() => {
-        initialState.successMessage = 'Doc added, please wait...'
-        this.setState(initialState, () => {
-          setTimeout(() => {
-            window.location.reload()
-          }, 40000)
-        })
+        if (buildhookUrl) {
+          initialState.successMessage = 'Doc added, please wait...'
+          fetch(`${buildhookUrl}`, {
+            method: 'POST',
+            body: {},
+          }).then(() => {
+            setTimeout(() => {
+              window.location.reload()
+            }, 40000)
+          }).catch(err => {
+            this.setState({ error: err })
+          })
+        }
+        this.setState(initialState)
       })
       .catch(err => {
         this.setState({ fetching: false, error: err })
