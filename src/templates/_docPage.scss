@@ -31,7 +31,9 @@ p {
   min-width: 290px;
   height: 100%;
   background-color: #F5F7FA;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
+  border-right: thin solid #1ABEFC;
+  border-top: thin solid #1ABEFC;
 
   .back-bttn {
     height: 45px;
@@ -90,10 +92,13 @@ p {
 
 .doc-main {
   width: calc(75% - 30px);
-  height: calc(100% - 30px);
+  height: 100%;
   padding: 15px;
+  background-color: #ffffff;
   overflow: auto;
   scroll-behavior: smooth;
+  border-radius: 0 5px 5px 0;
+  border-top: thin solid #1ABEFC;
 
   a {
     color: #0078ef;
@@ -105,7 +110,13 @@ ol {
   font-weight: 200;
   margin: 0;
   li {
-    margin: 15px;
+    margin: 30px auto 10px 20px;
+    font-size: 110%;
+    font-family: Roboto;
+    color: #595386;
+    ul {
+      margin-top: 0;
+    }
     a {
       text-decoration: none;
       color: #5F6D7B;
@@ -120,6 +131,9 @@ ul {
   margin: 0;
   li {
     margin: 15px 0;
+    font-size: 110%;
+    font-family: Roboto;
+    color:#595386;
     ul {
       margin-top: 0;
     }

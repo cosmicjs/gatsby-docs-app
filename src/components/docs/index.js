@@ -1,12 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import showdown from 'showdown'
 
-import CreateDoc from './CreateDoc.js'
+// import CreateDoc from './CreateDoc.js'
 import { Link } from 'gatsby'
 import './_docs.scss'
-
-const converter = new showdown.Converter()
 
 function formatSlug(title) {
   return title
@@ -47,12 +44,12 @@ function formatDate(dateString) {
 
   return `${
     months[date.getMonth()]
-  } ${date.getDate()}, at ${hour}:${minutes} ${dayTime}`
+    } ${date.getDate()}, at ${hour}:${minutes} ${dayTime}`
 }
 
-const Docs = ({ docs, pageContext }) => (
+const Docs = ({ docs, /* pageContext*/ }) => (
   <div className="docs-container">
-    <CreateDoc pageContext={pageContext} />
+    {/* <CreateDoc pageContext={pageContext} /> */}
     <div className="docs-list">
       {docs.map(doc => (
         <Link
@@ -65,7 +62,7 @@ const Docs = ({ docs, pageContext }) => (
           <div
             className="doc-preview"
             dangerouslySetInnerHTML={{
-              __html: converter.makeHtml(doc.content),
+              __html: doc.content,
             }}
           />
         </Link>
