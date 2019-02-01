@@ -11,9 +11,13 @@ const converter = new showdown.Converter({ ghCompatibleHeaderId: true })
 const DocPage = ({ data }) => {
   const Doc = data.docs.object
   let toc
+  let doc
   for (const i in Doc.metafields) {
     if (Doc.metafields[i].key === 'table_of_contents') {
       toc = Doc.metafields[i].value
+    }
+    if (Doc.metafields[i].key === 'documentation') {
+      doc = Doc.metafields[i].value
     }
   }
   return (
@@ -35,7 +39,7 @@ const DocPage = ({ data }) => {
         </div>
         <div
           className="doc-main"
-          dangerouslySetInnerHTML={{ __html: converter.makeHtml(Doc.content) }}
+          dangerouslySetInnerHTML={{ __html: converter.makeHtml(doc) }}
         />
       </div>
     </Layout>

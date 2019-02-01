@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Gatsby Docs`,
-    description: `Create and View Minimalistic Documentation, powered by Cosmic JS`,
+    description: `Create and View Minimalistic Documentation`,
     author: `@jacobknaack`,
   },
   plugins: [

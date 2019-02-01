@@ -1,3 +1,9 @@
+.doc-container h1 {
+  border-bottom: thin solid grey;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
 p, h1, h2, h3, h4, h5, h6, a {
   font-family: Roboto;
   line-height: 35px;
@@ -6,9 +12,15 @@ p, h1, h2, h3, h4, h5, h6, a {
 h1, h2, h3, h4, h5, h6 {
   color: #0050a1;
   font-weight: 200;
+}
+h1, h2, {
   margin: 30px auto;
 }
+h3, h4, h5, h6 {
+  margin: 10px auto;
+}
 p {
+  padding-left: 10px;
   color: #707070;
   a {
     text-decoration: none;
@@ -31,7 +43,9 @@ p {
   min-width: 290px;
   height: 100%;
   background-color: #F5F7FA;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
+  border-top: 2px solid #1ABEFC;
+  border-right: thin solid #1ABEFC;
 
   .back-bttn {
     height: 45px;
@@ -90,10 +104,13 @@ p {
 
 .doc-main {
   width: calc(75% - 30px);
-  height: calc(100% - 30px);
+  height: 100%;
   padding: 15px;
+  background-color: #ffffff;
   overflow: auto;
   scroll-behavior: smooth;
+  border-radius: 0 5px 5px 0;
+  border-top: 2px solid #1ABEFC;
 
   a {
     color: #0078ef;
@@ -102,10 +119,14 @@ p {
 
 ol {
   color: #a9a9a9;
-  font-weight: 200;
   margin: 0;
   li {
-    margin: 15px;
+    margin: 30px auto 10px 20px;
+    font-family: Roboto;
+    color: #595386;
+    ul {
+      margin-top: 0;
+    }
     a {
       text-decoration: none;
       color: #5F6D7B;
@@ -119,7 +140,9 @@ ul {
   list-style-type: none;
   margin: 0;
   li {
-    margin: 15px 0;
+    margin: 15px auto 10px 20px;
+    font-family: Roboto;
+    color:#595386;
     ul {
       margin-top: 0;
     }

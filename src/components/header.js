@@ -7,8 +7,10 @@ const Header = ({ siteTitle, description }) => (
     <div
       style={{
         margin: `0 auto`,
-        maxWidth: 1200,
-        padding: `1.45rem 1.0875rem`,
+        width: `100vw`,
+        padding: `1.45rem 15%`,
+        boxShadow: `0 4px 2px -2px black`,
+        backgroundColor: `#ffffff`,
       }}
     >
       <h1 style={{ margin: 0 }}>
@@ -26,7 +28,7 @@ const Header = ({ siteTitle, description }) => (
       </h1>
       <p
         style={{
-          color: '#188bff',
+          color: `#188bff`,
           fontSize: '120%',
           fontFamily: 'Roboto',
           fontWeight: 100,

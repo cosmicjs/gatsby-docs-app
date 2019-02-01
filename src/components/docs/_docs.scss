@@ -7,19 +7,18 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    overflow-x: auto;
   }
 
   .docs-item {
-    width: 30%;
-    min-width: 300px;
-    height: 400px;
+    width: 300px;
+    height: 100%;
     margin: 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-decoration: none;
-    background: linear-gradient(#ffffff, #0078ef);
+    background-color: #41CAC7;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     transition: 0.3s ease-in-out;
@@ -27,19 +26,20 @@
 
     .doc-title {
       width: calc(100% - 30px);
-      margin: 0;
+      margin:0 0 20px 0;
       padding: 0 15px;
-      color: #001a66;
+      color: #FFFFFF;
       font-family: Roboto;
       font-weight: 200;
+      font-size: 200%;
       text-align: left;
     }
 
     .doc-date {
       width: calc(100% - 10px);
-      padding-left: 10px;
+      padding-left: 15px;
       margin-top: 20px;
-      color: #707070;
+      color: #FFFFFF;
       font-weight: 300;
       font-size: 75%;
       text-align: left;
@@ -47,11 +47,19 @@
 
     .doc-preview {
       width: 90%;
-      height: 150px;
-      margin: 40px auto 0 auto;
+      height: calc(100% - 230px);
+      margin: 0 auto;
       overflow: hidden;
+      h1, h2, h3, h4, h5, h6 {
+        font-size: 130%;
+        margin: 0;
+      }
        p, h1, h2, h3, h4, h5, h6, li, a {
          color: #ffffff;
+       }
+       p {
+        margin-top: 10px;
+        line-height: 20px;
        }
     }
   }

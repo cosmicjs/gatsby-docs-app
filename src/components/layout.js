@@ -25,8 +25,9 @@ const Layout = ({ children }) => (
         />
         <div
           style={{
-            margin: `0 auto`,
-            maxWidth: 1200,
+            margin: `10px auto 0 auto`,
+            maxWidth: 1400,
+            height: `calc(100vh - 185px)`,
             padding: `0px 1.0875rem 1.45rem`,
             paddingTop: 0,
           }}
@@ -42,7 +43,7 @@ const Layout = ({ children }) => (
             >
               Gatsby
             </a>
-            {' & '}
+            {' & proudly powered by '}
             <a
               href="https://cosmicjs.com"
               target="_blank"
