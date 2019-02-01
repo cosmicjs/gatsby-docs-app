@@ -43,7 +43,7 @@ const Layout = ({ children }) => (
             >
               Gatsby
             </a>
-            {' & '}
+            {' & proudly powered by '}
             <a
               href="https://cosmicjs.com"
               target="_blank"
