@@ -1,7 +1,7 @@
 import React from 'react'
 import showdown from 'showdown'
 import PropTypes from 'prop-types'
-import Layout from '../components/layout.js'
+import Layout from '../components/layout'
 import SEO from '../components/seo.js'
 import { graphql, Link } from 'gatsby'
 import './_docPage.scss'
@@ -20,8 +20,9 @@ const DocPage = ({ data }) => {
       doc = Doc.metafields[i].value
     }
   }
+
   return (
-    <Layout>
+    <Layout selectedDoc={Doc}>
       <SEO
         title={data.docs.object.title}
         keywords={[`${data.docs.object.title}`, 'gatsby', 'documentation']}
