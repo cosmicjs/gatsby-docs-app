@@ -3,6 +3,7 @@
   font-family: Roboto;
 
   .docs-list {
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -11,9 +12,9 @@
   }
 
   .docs-item {
-    width: 300px;
+    width: 250px;
     height: 100%;
-    margin: 0 20px;
+    margin: 0 5px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -25,7 +26,7 @@
     overflow-y: auto; 
 
     .doc-title {
-      width: calc(100% - 30px);
+      width: 220px;
       margin:0 0 20px 0;
       padding: 0 15px;
       color: #FFFFFF;
@@ -35,8 +36,34 @@
       text-align: left;
     }
 
-    .doc-date {
+    .date-container {
       width: calc(100% - 10px);
+      padding: 5px 10px 5px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      .date-yearMonthDate {
+        height: 20px;
+        margin: 0;
+        color: #ffffff;
+        text-align: right;
+        font-size: 100%;
+        font-weight: 400;
+      }
+
+      .date-timeDayTime {
+        height: 20px;
+        color: #ffffff;
+        margin: 0 0 40px 0;;
+        padding: 0;
+        text-align: right;
+        font-size: 100%;
+        font-weight: 300;
+      }
+    }
+    .doc-date {
       padding-left: 15px;
       margin-top: 20px;
       color: #FFFFFF;
@@ -46,7 +73,7 @@
     }
 
     .doc-preview {
-      width: 90%;
+      width: 230px;
       height: calc(100% - 230px);
       margin: 0 auto;
       overflow: hidden;
@@ -65,7 +92,9 @@
   }
 
   .docs-item:hover {
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    width: 275px;
+    border: 4px solid #ffffff;
+    margin: 0 20px;
   }
 }
 

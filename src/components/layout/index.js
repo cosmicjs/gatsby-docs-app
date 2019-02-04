@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Header from './header'
+import Header from '../header'
 import './layout.css'
 
-const Layout = ({ children }) => (
+const Layout = ({ children, selectedDoc }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -22,6 +22,7 @@ const Layout = ({ children }) => (
         <Header
           siteTitle={data.site.siteMetadata.title}
           description={data.site.siteMetadata.description}
+          doc={selectedDoc}
         />
         <div
           style={{
@@ -60,6 +61,7 @@ const Layout = ({ children }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  selectedDoc: PropTypes.object,
 }
 
 export default Layout

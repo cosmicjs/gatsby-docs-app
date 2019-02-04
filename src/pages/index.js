@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
-import SEO from '../components/seo'
+import SEO from '../components/seo.js'
 import Docs from '../components/docs'
 
 const IndexPage = ({ data, pageContext }) => {
