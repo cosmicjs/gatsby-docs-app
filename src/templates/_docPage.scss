@@ -7,12 +7,12 @@
 }
 
 p, h1, h2, h3, h4, h5, h6, a {
-  font-family: "Roboto", sans-serif;
+  font-family: sans-serif;
   line-height: 35px;
   font-weight: 300;
 }
 h1, h2, h3, h4, h5, h6 {
-  color: #0050a1;
+  color: $heading;
   font-weight: 200;
 }
 h1, h2, {
@@ -23,10 +23,10 @@ h3, h4, h5, h6 {
 }
 p {
   padding-left: 10px;
-  color: #707070;
+  color: $dark-text;
   a {
     text-decoration: none;
-    color: #5F6D7B;
+    color: $anchor;
     font-weight: 200;
   }
 }
@@ -44,7 +44,7 @@ p {
   width: 25%;
   min-width: 290px;
   height: 100%;
-  background-color: #F5F7FA;
+  background-color: $toc;
   border-radius: 5px 0 0 5px;
   border-top: 2px solid $system;
   border-right: thin solid $system;
@@ -68,9 +68,9 @@ p {
     }
 
     a {
-      color: #4353d2;
+      color: $system;
       text-decoration: none;
-      font-family: "Roboto", sans-serif;
+      font-family: sans-serif;
       font-weight: 400;
     }
   }
@@ -83,10 +83,6 @@ p {
     border-top: thin solid #a9a9a9;
 
     ul, ol {
-      // a {
-      //   transition: 0.3s ease-in-out;
-      // }
-      
       a:hover {
         white-space: nowrap; 
         margin: 10px;
@@ -97,7 +93,7 @@ p {
       }
 
       a:active {
-        background-color: #5f6d7b;
+        background-color: $anchor;
         color: #ffffff;
       }
     }
@@ -120,18 +116,18 @@ p {
 }
 
 ol {
-  color: #a9a9a9;
+  color: $dark-background;
   margin: 0;
   li {
     margin: 30px auto 10px 20px;
-    font-family: "Roboto", sans-serif;
-    color: #595386;
+    font-family: sans-serif;
+    color: $dark-text;
     ul {
       margin-top: 0;
     }
     a {
       text-decoration: none;
-      color: #5F6D7B;
+      color: $anchor;
       font-weight: 200;
       line-height: 20px;
     }
@@ -143,14 +139,14 @@ ul {
   margin: 0;
   li {
     margin: 15px auto 10px 0;
-    font-family: "Roboto", sasn-serif;
-    color:#595386;
+    font-family: sans-serif;
+    color:$dark-text;
     ul {
       margin-top: 0;
     }
     a {
       text-decoration: none;
-      color: #5F6D7B;
+      color: $anchor;
       font-weight: 200;
       line-height: 20px;
     }

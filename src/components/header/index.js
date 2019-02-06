@@ -2,6 +2,7 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 import util from '../../util.js'
+import logo from '../../images/gd-logo.svg'
 import './_header.scss'
 
 const Header = ({ siteTitle, description, doc }) => {
@@ -13,14 +14,15 @@ const Header = ({ siteTitle, description, doc }) => {
     <div className="header-container">
       <div className="header-content">
         <div className={`site-meta${doc ? " doc" : ""}`}>
-          <h1 style={{ margin: 0 }}>
+          <div style={{ margin: 0, height: '75px', width: "300px" }}>
             <Link
               to="/"
               className="site-title"
             >
-              {siteTitle}
+              <img className="header-logo" src={logo} />
+              {doc ? "" : siteTitle}
             </Link>
-          </h1>
+          </div>
           <p className="site-description">
             {description}
           </p>
