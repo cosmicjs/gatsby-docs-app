@@ -1,3 +1,5 @@
+@import '../../_colors.scss';
+
 html {
   height: 100vh;
   width: 100vw;
@@ -10,7 +12,7 @@ body {
   height: 100%;
   width: 100%;
   margin: 0;
-  background-color: #1D2B38;
+  background-color: $light-background;
   overflow: hidden;
 }
 #___gatsby {
@@ -634,15 +636,15 @@ pre tt:after {
   width: 100%;
   height: 40px;
   text-align: center;
-  font-family: Roboto;
+  font-family: sans-serif;
   background-color: #ffffff;
-  color: #101010;
+  color: $off-black;
   left: 0;
   bottom: 0;
 }
 #footer a {
   text-decoration: none;
-  color: #4373D2;
+  color: $system;
 }
 
 @media only screen and (max-width: 480px) {

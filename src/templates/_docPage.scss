@@ -1,3 +1,5 @@
+@import '../_colors.scss';
+
 .doc-container h1 {
   border-bottom: thin solid grey;
   padding-bottom: 10px;
@@ -5,12 +7,12 @@
 }
 
 p, h1, h2, h3, h4, h5, h6, a {
-  font-family: Roboto;
+  font-family: sans-serif;
   line-height: 35px;
   font-weight: 300;
 }
 h1, h2, h3, h4, h5, h6 {
-  color: #0050a1;
+  color: $heading;
   font-weight: 200;
 }
 h1, h2, {
@@ -21,10 +23,10 @@ h3, h4, h5, h6 {
 }
 p {
   padding-left: 10px;
-  color: #707070;
+  color: $dark-text;
   a {
     text-decoration: none;
-    color: #5F6D7B;
+    color: $anchor;
     font-weight: 200;
   }
 }
@@ -42,10 +44,10 @@ p {
   width: 25%;
   min-width: 290px;
   height: 100%;
-  background-color: #F5F7FA;
+  background-color: $toc;
   border-radius: 5px 0 0 5px;
-  border-top: 2px solid #1ABEFC;
-  border-right: thin solid #1ABEFC;
+  border-top: 2px solid $system;
+  border-right: thin solid $system;
 
   .back-bttn {
     height: 45px;
@@ -66,9 +68,9 @@ p {
     }
 
     a {
-      color: #4353d2;
+      color: $system;
       text-decoration: none;
-      font-family: roboto;
+      font-family: sans-serif;
       font-weight: 400;
     }
   }
@@ -81,10 +83,6 @@ p {
     border-top: thin solid #a9a9a9;
 
     ul, ol {
-      a {
-        transition: 0.3s ease-in-out;
-      }
-      
       a:hover {
         white-space: nowrap; 
         margin: 10px;
@@ -95,7 +93,7 @@ p {
       }
 
       a:active {
-        background-color: #5f6d7b;
+        background-color: $anchor;
         color: #ffffff;
       }
     }
@@ -110,26 +108,26 @@ p {
   overflow: auto;
   scroll-behavior: smooth;
   border-radius: 0 5px 5px 0;
-  border-top: 2px solid #1ABEFC;
+  border-top: 2px solid $system;
 
   a {
-    color: #0078ef;
+    color: $system;
   }
 }
 
 ol {
-  color: #a9a9a9;
+  color: $dark-background;
   margin: 0;
   li {
     margin: 30px auto 10px 20px;
-    font-family: Roboto;
-    color: #595386;
+    font-family: sans-serif;
+    color: $dark-text;
     ul {
       margin-top: 0;
     }
     a {
       text-decoration: none;
-      color: #5F6D7B;
+      color: $anchor;
       font-weight: 200;
       line-height: 20px;
     }
@@ -140,15 +138,15 @@ ul {
   list-style-type: none;
   margin: 0;
   li {
-    margin: 15px auto 10px 20px;
-    font-family: Roboto;
-    color:#595386;
+    margin: 15px auto 10px 0;
+    font-family: sans-serif;
+    color:$dark-text;
     ul {
       margin-top: 0;
     }
     a {
       text-decoration: none;
-      color: #5F6D7B;
+      color: $anchor;
       font-weight: 200;
       line-height: 20px;
     }

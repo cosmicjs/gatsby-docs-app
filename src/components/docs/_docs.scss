@@ -1,6 +1,8 @@
+@import '../../_colors.scss';
+
 .docs-container {
   height: 100%;
-  font-family: Roboto;
+  font-family: sans-serif;
 
   .docs-list {
     width: 100%;
@@ -19,18 +21,18 @@
     flex-direction: column;
     justify-content: flex-start;
     text-decoration: none;
-    background-color: #41CAC7;
+    background-color: $system;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    transition: 0.3s ease-in-out;
+    // transition: 0.3s ease-in-out;
     overflow-y: auto; 
 
     .doc-title {
       width: 220px;
       margin:0 0 20px 0;
       padding: 0 15px;
-      color: #FFFFFF;
-      font-family: Roboto;
+      color: #ffffff;
+      font-family: sans-serif;
       font-weight: 200;
       font-size: 200%;
       text-align: left;
@@ -66,7 +68,7 @@
     .doc-date {
       padding-left: 15px;
       margin-top: 20px;
-      color: #FFFFFF;
+      color: #ffffff;
       font-weight: 300;
       font-size: 75%;
       text-align: left;
@@ -90,12 +92,6 @@
        }
     }
   }
-
-  .docs-item:hover {
-    width: 275px;
-    border: 4px solid #ffffff;
-    margin: 0 20px;
-  }
 }
 
 .create-doc-container {
@@ -103,9 +99,8 @@
   width: 200px;
   margin: 0 auto;
   border-radius: 30px;
-  background-color: #4373D2;
+  background-color: $system;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 
   .create-doc-successMessage {
     position: absolute;
@@ -137,21 +132,21 @@
   .close-bttn {
     width: 100px;
     margin: 20px auto 0 auto;
-    color: #ff4c4c;
+    color: $important;
     padding: 3px;
     background: none;
     outline: none;
-    border: thin solid #ff4c4c;
-    font-family: helvetica;
+    border: thin solid $important;
+    font-family: sans-serif;
     font-weight: 200;
     font-size: 100%;
     border-radius: 30px;
-    transition: 0.5s ease-in-out;
+    // transition: 0.5s ease-in-out;
   }
   
   .close-bttn:hover {
     color: #ffffff;
-    background-color: #ff4c4c;
+    background-color: $important;
   }
 
   .helpertext {
@@ -161,12 +156,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    color: #101010;
+    color: $off-black;
 
     span {
       margin: 0 0 15px 5px;
       font-size: 75%;
-      color: #a9a9a9;
+      color: $dark-text;
     }
   }
 
@@ -179,16 +174,16 @@
     outline: none;
     border-radius: 5px;
     border: none;
-    color: #101010;
+    color: $off-black;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    font-family: helvetica;
+    font-family: sans-serif;
   }
 
   .content-container {
     padding: 20px;
     width: 100%;
     height: 80%;
-    background-color: #9999ff;
+    background-color: $system;
     overflow-y: auto;
   }
 
@@ -203,16 +198,16 @@
       margin-right: 40px;
       border-radius: 20px;
       box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-      background-color: #6666ff;
+      background-color: $system;
       color: #ffffff;
       input {
         margin: 5px;
-        color: #0DFF92;
+        color: $input;
       }
     }
 
     label:active {
-      background-color: #663399;
+      background-color: $heading;
     }
   }
 
@@ -244,11 +239,11 @@
       padding: 5px;
       text-align: center;
       background-color: #ffffff;
-      border-left: thin solid #a9a9a9;
+      border-left: thin solid $light-background;
       border-radius: 0 5px 5px 0;
 
       h4 {
-       color: #a9a9a9;
+       color: $dark-text;;
        margin: 0 auto;  
       }
 
@@ -277,12 +272,12 @@
 
       a {
         text-decoration: none;
-        color: #5F6D7B;
+        color: $anchor;
       }
       
       .toc.selected, .main.selected {
-        background-color: #d3d3d3;
-        border: thin solid #a9a9a9;
+        background-color: $light-background;
+        border: thin solid $dark-text;
       }
     }
   }
@@ -291,7 +286,7 @@
     outline: none;
     border: none;
     border-radius: 20px;
-    background: #4373D2;
+    background: $system;
     margin: 20px auto;
     width: 100px;
     color: #ffffff;
