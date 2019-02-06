@@ -1,7 +1,9 @@
+@import '../../_colors.scss';
+
 .header-container {
   max-width: 100%;
   background-color: #ffffff;
-  box-shadow: 0 4px 2px -2px black;
+  box-shadow: 0 4px 2px -2px grey;
   
   .header-content {
     max-width: 1300px;
@@ -17,15 +19,15 @@
     background-color: #ffffff;
 
     .site-title {
-      color: #0481ff;
+      color: $system;
       text-decoration: none;
-      font-family: Roboto;
+      font-family: "Roboto", sans-serif;
       font-weight: 200;
     }
     .site-description {
-      color: #188bff;
+      color: $system;
       font-size: 120%;
-      font-family: Roboto;
+      font-family: "Roboto", sans-serif;
       font-weight: 100;
     }
   }

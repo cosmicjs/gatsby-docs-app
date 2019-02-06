@@ -6,6 +6,12 @@ const path = require('path');
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+/*
+ * Gatsby API onCreatePage
+ ** Runs when a page is created using the files in the `pages` directory
+ ** Creates a page context object with any environment variables that might be needing to be configured through Cosmic Js
+*/
+
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
   const pageContext = {
@@ -22,6 +28,12 @@ exports.onCreatePage = ({ page, actions }) => {
     context: pageContext,
   })
 }
+
+/*
+  * Gatsby API createPages
+  ** Creates a page at a specified path using a template
+  ** Initialized with a GraphQL query and creates a new page for each item returned.
+ */
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions
