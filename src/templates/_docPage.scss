@@ -82,21 +82,23 @@ p {
     padding-left: 20px;
     border-top: thin solid #a9a9a9;
 
-    ul, ol {
-      a:hover {
-        white-space: nowrap; 
-        margin: 10px;
-        padding: 10px;
-        background-color: #ffffff;
-        border-radius: 5px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      }
+    // ul, ol {
+    //   adds margin, button outline and precents word wrap on hover for TOC
+    //   a:hover {
+    //     white-space: nowrap; 
+    //     margin: 10px;
+    //     padding: 10px;
+    //     background-color: #ffffff;
+    //     border-radius: 5px;
+    //     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    //   }
 
-      a:active {
-        background-color: $anchor;
-        color: #ffffff;
-      }
-    }
+    //   Inverts colors on 
+    //   a:active {
+    //     background-color: $anchor;
+    //     color: #ffffff;
+    //   }
+    // }
   }
 }
 

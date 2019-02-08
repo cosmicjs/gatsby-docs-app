@@ -1,11 +1,11 @@
 export default {
-  formatSlug: (title) => {
+  formatSlug: title => {
     return title
       .toLowerCase()
       .replace(/[^a-zA-Z ]/g, '')
       .replace(/\s/g, '-')
   },
-  formatDate: (dateString) => {
+  formatDate: dateString => {
     const date = new Date(dateString)
     const months = [
       'January',
@@ -43,5 +43,5 @@ export default {
       minutes: minutes,
       dayTime: dayTime,
     }
-  }
+  },
 }
