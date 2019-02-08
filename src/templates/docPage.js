@@ -14,7 +14,7 @@ class DocPage extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      Doc: props.data.docs.object
+      Doc: props.data.docs.object,
     }
   }
 
