@@ -19,10 +19,10 @@ const Docs = ({ docs }) => (
             <div className="date-container">
               <h3 className="date-yearMonthDate">{`${date_created.month} ${
                 date_created.date
-              }, ${date_created.year}`}</h3>
+                }, ${date_created.year}`}</h3>
               <p className="date-timeDayTime">{`at ${date_created.hour}:${
                 date_created.minutes
-              } ${date_created.dayTime}`}</p>
+                } ${date_created.dayTime}`}</p>
             </div>
             <h2 className="doc-title">{doc.title}</h2>
             <div
