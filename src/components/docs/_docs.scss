@@ -1,6 +1,8 @@
 @import '../../_colors.scss';
 
 .docs-container {
+  // position: absolute;
+  // width: 100vw;
   height: 100%;
   font-family: sans-serif;
 
@@ -15,6 +17,7 @@
 
   .docs-item {
     width: 250px;
+    min-width: 250px;
     height: 100%;
     margin: 0 5px;
     display: flex;
@@ -28,7 +31,7 @@
     overflow-y: auto; 
 
     .doc-title {
-      width: 220px;
+      width: 100%;
       margin:0 0 20px 0;
       padding: 0 15px;
       color: #ffffff;
@@ -87,8 +90,16 @@
          color: #ffffff;
        }
        p {
-        margin-top: 10px;
+        width: 200px;
+        margin: 10px auto;
         line-height: 20px;
+        padding: 0;
+       }
+       img {
+         max-width: 175px;
+         display: block;
+         margin: 0 auto;
+         border-radius: 5px;
        }
     }
   }
