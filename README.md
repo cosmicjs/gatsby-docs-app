@@ -12,6 +12,8 @@
 </h1>
 <p align="center">A minimalistic App for creating and viewing Documentation powered by Cosmic JS<p>
 
+### [View Demo](https://cosmicjs.com/apps/gatsby-docs)
+
 ## Quick Start
 
 1.  **Get this source Code**
